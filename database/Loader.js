@@ -7,9 +7,7 @@ const client = new Client({
   port: 5432,
 });
 client.connect();
-client.on('notice', (msg) => {
-  console.log('Notice: ', msg);
-})
+console.log('I\'m connected bro!');
 
 const getRelated = (id, callback) => {
   client.query(`SELECT * FROM related WHERE id = ${id}`, callback);
