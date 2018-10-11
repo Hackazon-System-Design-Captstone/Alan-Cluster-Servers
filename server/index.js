@@ -61,6 +61,14 @@ app.get('/api/:id', (req, res) => { // Without Redis
   });
 });
 
+getRelated(1, (err, result) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(result);
+  }
+});
+
 
 // app.post('/products', (req, res) => {
 //   addRelated(req.body);
