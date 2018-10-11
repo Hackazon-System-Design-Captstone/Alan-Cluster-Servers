@@ -7,8 +7,8 @@ const client = new Client({
   port: 5432,
 });
 client.connect();
-client.on('connect', () => {
-  console.log('Connected to DB');
+client.on('notice', (msg) => {
+  console.log('Notice: ', msg);
 })
 
 const getRelated = (id, callback) => {
