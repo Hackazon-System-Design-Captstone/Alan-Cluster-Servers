@@ -3,9 +3,9 @@ require('dotenv').config();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 // const redis = require('redis'); // Redis
-// const bluebird = require('bluebird'); // For Redis
+// const bluebird = require('bluebird');
 
-// bluebird.promisifyAll(redis); // For redis
+// bluebird.promisifyAll(redis);
 
 // const client = redis.createClient(); // Redis
 
@@ -23,10 +23,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // app.use(express.static(`${__dirname}/../client/dist`));
-// app.use((req, res, next) => {
-//   console.log(`${req.method} request received at ${req.url}`);
-//   next();
-// });
+app.use((req, res, next) => {
+  console.log(`${req.method} request received at ${req.url}`);
+  next();
+});
 
 // app.get('/api/:id', (req, res) => { // With Redis
 //   client.getAsync(`product:${req.params.id}`)
@@ -61,13 +61,13 @@ app.get('/api/:id', (req, res) => { // Without Redis
   });
 });
 
-getRelated(1, (err, result) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(result);
-  }
-});
+// getRelated(1, (error, results) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log(results.rows[0]);
+//   }
+// });
 
 
 // app.post('/products', (req, res) => {
